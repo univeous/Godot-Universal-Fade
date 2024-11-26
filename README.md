@@ -1,5 +1,7 @@
 # <img src="Media/Icon.png" width="64" height="64"> Godot Universal Fade
 
+### Modified for personal use.
+
 Universal Fade does 2 things:
 - fades out
 - fades in
@@ -32,21 +34,30 @@ You can pause the game while fading. The Fade node will process normally during 
 
 ## Additional stuff
 
-Fade methods come with a few parameters. They are:
+Fade methods come with a few options    . They are:
 
 - `time` - time of the effect in seconds. By default it's 1
 - `color` - color to fade to. By default it's black
+- `texture` - texture to use for the effect. If empty, the pattern will be used.
 - `pattern` - pattern used for the effect. See "Patterns" section. If empty string is passed (default), there will be no pattern. The patterns are located in `addons/UniversalFade/Patterns` folder. For argument, your provide the base name of the pattern file, e.g. "Diamond" to use "Diamond.png"
 - `reverse` - if true, pattern will be reversed. Defaults to false for fade out and true for fade in
 - `smooth` - if true, the pattern will have smoothed alpha. Defaults to false
+- `z_index` - the z index of the effect. Defaults to 100
 
 Example call with all arguments:
 
 ```GDScript
-Fade.fade_out(1, Color.BLUE, "Diamond", false, false)
+Fade.fade_out({
+    time = 1,
+    color = Color.BLUE,
+    pattern = "Diamond",
+    reverse = false,
+    smooth = false,
+    z_index = 100
+})
 ```
 
-All arguments are optional. If you want to use a different patterns directory, modify the `addons/universal_fade/patterns_directory` project setting.
+All arguments are optional.
 
 ## Patterns
 
